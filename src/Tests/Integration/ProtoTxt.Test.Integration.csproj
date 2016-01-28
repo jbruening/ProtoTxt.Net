@@ -58,6 +58,12 @@
     <Content Include="Caffe\bvlc_googlenet\train_val.prototxt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Caffe\bvlc_googlenet\quick_solver.prototxt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Caffe\bvlc_googlenet\solver.prototxt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Caffe\caffe.proto" />
     <Content Include="Caffe\bvlc_googlenet\deploy.prototxt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

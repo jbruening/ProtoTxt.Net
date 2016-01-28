@@ -46,11 +46,10 @@ namespace ProtoTxt
         private static void DeserializeObject(object obj, ProtoObject proto)
         {
             var type = obj.GetType();
+            var props = type.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
             foreach (var pprop in proto.Properties)
             {
-                var props = type.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-                var pname = pprop.Name.Replace("_", "");
-                var oprop = props.FirstOrDefault(p => p.Name.Equals(pname, StringComparison.OrdinalIgnoreCase));
+                var oprop = GetBestMatchingProperty(props, pprop.Name);
                 if (oprop == null) continue;
                 var value = DeserializeProperty(pprop, oprop);
                 if (value == null) continue;
@@ -83,6 +82,18 @@ namespace ProtoTxt
                     }
                 }
             }
+        }
+
+        private static PropertyInfo GetBestMatchingProperty(PropertyInfo[] props, string propertyName)
+        {
+            //with the proto generate, most of the time the properties have _ removed, and their name changed to PascalCase
+            return FindProperty(props, propertyName.Replace("_", ""))
+                ?? FindProperty(props, propertyName); //sometimes it's not modified
+        }
+
+        static PropertyInfo FindProperty(PropertyInfo[] props, string propertyName)
+        {
+            return props.FirstOrDefault(p => p.Name.Equals(propertyName, StringComparison.OrdinalIgnoreCase));
         }
 
         private static object ConvertValue(object value, Type ptype)
