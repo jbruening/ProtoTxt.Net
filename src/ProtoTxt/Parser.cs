@@ -23,7 +23,8 @@ namespace ProtoTxt
                 new Obr(),
                 new Cbr(),
                 new Colon(), 
-                new Whitespace()
+                new Whitespace(),
+                new CommentToken(), 
             };
             
             while (ci < source.Length)

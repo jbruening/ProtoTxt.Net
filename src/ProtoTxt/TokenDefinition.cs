@@ -50,4 +50,9 @@ namespace ProtoTxt
     {
         public Colon() : base(":") { }
     }
+
+    class CommentToken : TokenDefinition
+    {
+        public CommentToken() : base("#.*[\r\n]?", true) { }
+    }
 }

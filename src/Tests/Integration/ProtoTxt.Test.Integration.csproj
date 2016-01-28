@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Caffe\caffe.cs" />
+    <Compile Include="Caffe\FineTuneFlickrTest.cs" />
     <Compile Include="Caffe\GoogleNetTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -66,6 +67,15 @@
     </Content>
     <None Include="Caffe\caffe.proto" />
     <Content Include="Caffe\bvlc_googlenet\deploy.prototxt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Caffe\finetune_flickr_style\deploy.prototxt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Caffe\finetune_flickr_style\solver.prototxt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Caffe\finetune_flickr_style\train_val.prototxt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Caffe\readme.md" />
