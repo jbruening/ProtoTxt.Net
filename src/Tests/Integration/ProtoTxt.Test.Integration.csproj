@@ -51,13 +51,16 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Caffe\caffe.cs" />
-    <Compile Include="Caffe\Test.cs" />
+    <Compile Include="Caffe\GoogleNetTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Caffe\bvlc_googlenet\train_val.prototxt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Caffe\caffe.proto" />
-    <Content Include="Caffe\deploy.prototxt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="Caffe\bvlc_googlenet\deploy.prototxt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Caffe\readme.md" />
   </ItemGroup>
